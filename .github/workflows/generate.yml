@@ -1,4 +1,4 @@
-name: cron
+name: generate
 
 on:
   workflow_dispatch:
