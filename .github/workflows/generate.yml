@@ -39,25 +39,16 @@ jobs:
         run: |
           echo "🕐 当前时间: $(date '+%Y-%m-%d %H:%M:%S')"
           # 设置目录路径
-          BASE_DIR="dist/gh-pages"
+          BASE_DIR="dist"
+          # 删除目录
+          rm -rf $BASE_DIR
           # 创建目录
-          mkdir -p "$BASE_DIR"
+          mkdir -p $BASE_DIR
           #
           ./swift-package-collection-generator/.build/release/package-collection-generate packages.json $BASE_DIR/collection.json
-      - name: Checkout Github Pages
-        continue-on-error: true # 忽略 gh-pages 分支未创建
-        uses: actions/checkout@v3
-        with:
-          ref: gh-pages
-          path: gh-pages
-      - name: Merge Github Pages
-        run: |
-          # 避免 gh-pages 分支未创建
-          mkdir -p gh-pages‌
-          #
-          if [ -d dist/gh-pages ]; then cp -rf dist/gh-pages/. gh-pages/; fi
       - name: Deploy Github Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: gh-pages
+          folder: dist
           branch: gh-pages
+          clean: true
