@@ -20,8 +20,15 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Install tool
-        run: brew install swift-package-collection-generator
+      - name: Checkout swift-package-collection-generator
+        uses: actions/checkout@v3
+        with:
+          repository: apple/swift-package-collection-generator
+          path: swift-package-collection-generator
+      - name: Build swift-package-collection-generator
+        run: |
+          cd swift-package-collection-generator
+          swift build --configuration release
       - name: Generate Content
         run: |
           echo "🕐 当前时间: $(date '+%Y-%m-%d %H:%M:%S')"
@@ -30,7 +37,7 @@ jobs:
           # 创建目录
           mkdir -p "$BASE_DIR"
           #
-          package-collection-generate packages.json $BASE_DIR/collection.json
+          ./swift-package-collection-generator/.build/release/package-collection-generate packages.json $BASE_DIR/collection.json
       - name: Checkout Github Pages
         continue-on-error: true # 忽略 gh-pages 分支未创建
         uses: actions/checkout@v3
