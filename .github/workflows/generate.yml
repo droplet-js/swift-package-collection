@@ -105,8 +105,8 @@ jobs:
             fs.writeFileSync(
               "packages.json",
               JSON.stringify({
-                "name": "Swift Package Collection"
-                packages
+                name: "Swift Package Collection",
+                packages: packages
               }, null, 2)
             );
       
