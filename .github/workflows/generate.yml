@@ -30,7 +30,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: swift-package-collection-generator/.build
-          key: ${{ runner.os }}-spm-${{ hashFiles('generator/Package.resolved') }}
+          key: ${{ runner.os }}-spm-${{ hashFiles('swift-package-collection-generator/Package.resolved') }}
       - name: Build swift-package-collection-generator
         run: |
           cd swift-package-collection-generator
