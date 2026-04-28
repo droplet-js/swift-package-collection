@@ -1,4 +1,5 @@
 {
+    "name": "Swift Package Collection",
     "packages": [
         {
             "url": "https://github.com/firebase/firebase-ios-sdk.git"
