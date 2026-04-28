@@ -36,6 +36,8 @@ jobs:
           cd swift-package-collection-generator
           swift build --configuration release
       - name: Generate Content
+        env: 
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           echo "🕐 当前时间: $(date '+%Y-%m-%d %H:%M:%S')"
           # 设置目录路径
