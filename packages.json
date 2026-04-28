@@ -1,0 +1,22 @@
+{
+    "packages": [
+        {
+            "url": "https://github.com/firebase/firebase-ios-sdk.git"
+        },
+        {
+            "url": "https://github.com/fabiocaccamo/FCUUID.git"
+        },
+        {
+            "url": "https://github.com/Alamofire/Alamofire.git"
+        },
+        {
+            "url": "https://github.com/onevcat/Kingfisher.git"
+        },
+        {
+            "url": "https://github.com/pocketsvg/PocketSVG.git"
+        },
+        {
+            "url": "https://github.com/groue/GRDB.swift.git"
+        }
+    ]
+}
